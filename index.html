@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Love Story ❤️</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "DM Sans", sans-serif;
+    background: #12050c;
+    color: white;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 73, 145, 0.35), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(255, 30, 120, 0.25), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255, 120, 180, 0.20), transparent 35%),
+        linear-gradient(135deg, #18050e, #3b0b20, #16040c);
+
+    animation: backgroundMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove {
+    0% {
+        filter: hue-rotate(0deg);
+        transform: scale(1);
+    }
+
+    100% {
+        filter: hue-rotate(12deg);
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================================
+   SCREEN SYSTEM
+========================================================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease,
+        transform 0.8s ease;
+
+    overflow-y: auto;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+
+    color: rgba(255, 100, 170, 0.45);
+
+    font-size: 20px;
+
+    animation:
+        floatHeart linear infinite;
+
+    filter: drop-shadow(0 0 8px rgba(255, 70, 150, 0.5));
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
+
+.glass-card {
+    width: min(500px, 100%);
+
+    padding: 55px 45px;
+
+    border-radius: 35px;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px rgba(255, 255, 255, 0.15);
+
+    text-align: center;
+
+    position: relative;
+    z-index: 5;
+
+    animation: cardAppear 1.2s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-small {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ff9cc7;
+    margin-bottom: 15px;
+}
+
+.login-title {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(65px, 12vw, 95px);
+    font-weight: 400;
+    color: #fff;
+
+    text-shadow:
+        0 0 15px rgba(255, 100, 170, 0.8),
+        0 0 40px rgba(255, 40, 130, 0.4);
+
+    line-height: 0.95;
+
+    margin-bottom: 20px;
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.date-input {
+    width: 100%;
+
+    padding: 18px 20px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    outline: none;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 17px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.date-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.date-input:focus {
+    border-color: #ff6ca8;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 80, 150, 0.10),
+        0 0 25px rgba(255, 80, 150, 0.25);
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.main-button {
+
+    width: 100%;
+
+    padding: 18px 25px;
+
+    border: none;
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d91,
+            #ff1671
+        );
+
+    box-shadow:
+        0 10px 30px rgba(255, 30, 120, 0.30);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.main-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: 0.7s;
+}
+
+.main-button:hover::before {
+    left: 130%;
+}
+
+.main-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(255, 30, 120, 0.45);
+}
+
+.main-button:active {
+    transform: scale(0.97);
+}
+
+.login-hint {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+}
+
+.error {
+    height: 20px;
+    margin-top: 12px;
+
+    font-size: 13px;
+    color: #ff8ab9;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.error.show {
+    opacity: 1;
+}
+
+/* =========================================================
+   CELEBRATION SCREEN
+========================================================= */
+
+.celebration-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.celebration-small {
+
+    text-transform: uppercase;
+
+    letter-spacing: 6px;
+
+    font-size: 13px;
+
+    color: #ffb2d1;
+
+    margin-bottom: 25px;
+
+    animation: fadeDown 1s ease;
+}
+
+.celebration-title {
+
+    font-family: "Great Vibes", cursive;
+
+    font-weight: 400;
+
+    font-size: clamp(75px, 13vw, 150px);
+
+    line-height: 0.9;
+
+    max-width: 1100px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #ffb1d3,
+        0 0 30px #ff579b,
+        0 0 70px rgba(255, 40, 130, 0.8);
+
+    animation:
+        titleGlow 2s ease-in-out infinite alternate,
+        celebrationAppear 1.5s ease;
+
+}
+
+@keyframes titleGlow {
+
+    from {
+        text-shadow:
+            0 0 10px #ffb1d3,
+            0 0 30px #ff579b;
+    }
+
+    to {
+        text-shadow:
+            0 0 20px #ffffff,
+            0 0 50px #ff579b,
+            0 0 100px #ff287d;
+    }
+}
+
+@keyframes celebrationAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.celebration-heart {
+
+    font-size: 65px;
+
+    margin-top: 35px;
+
+    animation:
+        heartBeat 1.2s infinite;
+
+    filter:
+        drop-shadow(0 0 20px #ff4c91);
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+.continue-text {
+
+    margin-top: 45px;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    animation: pulseText 2s infinite;
+}
+
+@keyframes pulseText {
+
+    0%,100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+#confetti-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 50;
+}
+
+.confetti {
+
+    position: absolute;
+
+    width: 10px;
+    height: 18px;
+
+    top: -30px;
+
+    opacity: 0.9;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            translateX(var(--drift))
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   MEMORY PAGE
+========================================================= */
+
+.memories-container {
+
+    width: min(1200px, 100%);
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 40px 10px;
+}
+
+.memory-intro {
+
+    margin-bottom: 50px;
+}
+
+.memory-kicker {
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #ff8fbd;
+
+    margin-bottom: 10px;
+}
+
+.memory-title {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 10vw, 100px);
+
+    font-weight: 400;
+
+    text-shadow:
+        0 0 25px rgba(255, 50, 140, 0.5);
+
+    line-height: 1;
+}
+
+.memory-subtitle {
+
+    margin-top: 15px;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   MEMORY BUTTONS
+========================================================= */
+
+.memory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.memory-card {
+
+    min-height: 310px;
+
+    border-radius: 30px;
+
+    padding: 35px 25px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 100, 170, 0.17),
+            rgba(255,255,255,0.045)
+        );
+
+    border:
+        1px solid rgba(255, 130, 190, 0.35);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.3),
+        inset 0 1px rgba(255,255,255,0.15);
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        border-color 0.4s,
+        box-shadow 0.4s;
+}
+
+.memory-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    background: #ff2e83;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0;
+
+    transition: 0.5s;
+}
+
+.memory-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    border-color: rgba(255, 130, 190, 0.8);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.4),
+        0 0 40px rgba(255, 40, 130, 0.20);
+}
+
+.memory-card:hover::before {
+    opacity: 0.25;
+}
+
+.card-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 25px;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,80,160,0.7));
+
+    transition: 0.4s;
+}
+
+.memory-card:hover .card-icon {
+
+    transform:
+        scale(1.2)
+        rotate(-5deg);
+}
+
+.card-title {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 31px;
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.card-number {
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    color: #ff7eae;
+
+    letter-spacing: 3px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(5, 1, 5, 0.82);
+
+    backdrop-filter: blur(18px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.4s;
+}
+
+.modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.modal-box {
+
+    position: relative;
+
+    max-width: 900px;
+
+    width: 100%;
+
+    max-height: 90vh;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    border-radius: 30px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.6),
+        0 0 60px rgba(255,50,140,0.12);
+
+    transform:
+        scale(0.8)
+        translateY(30px);
+
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1);
+
+    overflow: auto;
+}
+
+.modal.active .modal-box {
+
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.close-button {
+
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(0,0,0,0.35);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: 0.3s;
+}
+
+.close-button:hover {
+
+    background: #ff3d87;
+
+    transform: rotate(90deg);
+}
+
+/* =========================================================
+   SINGLE PHOTO
+========================================================= */
+
+.single-photo {
+
+    width: 100%;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    display: block;
+
+    margin: auto;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+}
+
+.photo-caption {
+
+    text-align: center;
+
+    padding: 20px 10px 5px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    color: #ffb5d3;
+}
+
+/* =========================================================
+   FOUR PHOTO GALLERY
+========================================================= */
+
+.gallery-title {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 55px;
+
+    text-align: center;
+
+    color: #ffb5d3;
+
+    margin-bottom: 20px;
+}
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+.gallery img {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    transition:
+        transform 0.4s,
+        box-shadow 0.4s;
+
+    cursor: pointer;
+}
+
+.gallery img:hover {
+
+    transform: scale(1.025);
+
+    box-shadow:
+        0 15px 40px rgba(255,50,140,0.3);
+}
+
+/* =========================================================
+   CLICK RIPPLE
+========================================================= */
+
+.ripple {
+
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(255,100,170,0.5);
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation: ripple 0.7s ease-out forwards;
+}
+
+@keyframes ripple {
+
+    from {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: scale(30);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .memory-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+    }
+
+    .memory-card {
+
+        min-height: 230px;
+    }
+
+    .glass-card {
+
+        padding: 45px 25px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .screen {
+        padding: 15px;
+    }
+
+    .memory-title {
+        font-size: 65px;
+    }
+
+    .gallery {
+        gap: 10px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+}
+
+/* =========================================================
+   SHAKE ANIMATION
+========================================================= */
+
+.shake {
+
+    animation: shake 0.45s ease;
+}
+
+@keyframes shake {
+
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    60% {
+        transform: translateX(-7px);
+    }
+
+    80% {
+        transform: translateX(7px);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ======================================================
+     FLOATING HEARTS
+====================================================== -->
+
+<div class="floating-hearts" id="hearts"></div>
+
+<!-- ======================================================
+     CONFETTI
+====================================================== -->
+
+<div id="confetti-container"></div>
+
+
+<!-- ======================================================
+     SCREEN 1 — PASSWORD
+====================================================== -->
+
+<section class="screen active" id="loginScreen">
+
+    <div class="glass-card" id="loginCard">
+
+        <div class="login-small">
+            A little secret
+        </div>
+
+        <h1 class="login-title">
+            Welcome
+        </h1>
+
+        <p class="login-subtitle">
+            Enter our special date to unlock our little world ❤️
+        </p>
+
+        <div class="input-wrapper">
+
+            <input
+                type="text"
+                id="passwordInput"
+                class="date-input"
+                placeholder="DD-MM-YYYY"
+                maxlength="10"
+                autocomplete="off"
+            >
+
+        </div>
+
+        <button
+            class="main-button"
+            onclick="checkPassword()"
+        >
+            Enter our story ❤️
+        </button>
+
+        <div
+            class="error"
+            id="errorMessage"
+        >
+            That's not our special date... ❤️
+        </div>
+
+        <div class="login-hint">
+            Only one date opens this story
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SCREEN 2 — CELEBRATION
+====================================================== -->
+
+<section class="screen" id="celebrationScreen">
+
+    <div class="celebration-content">
+
+        <div class="celebration-small">
+            Two beautiful years
+        </div>
+
+        <h1 class="celebration-title">
+            Happy 2 year<br>
+            anniversary
+        </h1>
+
+        <div class="celebration-heart">
+            ❤️
+        </div>
+
+        <div class="continue-text">
+            Our story continues...
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SCREEN 3 — MEMORY MENU
+====================================================== -->
+
+<section class="screen" id="memoryScreen">
+
+    <div class="memories-container">
+
+        <div class="memory-intro">
+
+            <div class="memory-kicker">
+                A little collection of us
+            </div>
+
+            <h1 class="memory-title">
+                Our Journey
+            </h1>
+
+            <p class="memory-subtitle">
+                Three things that mean the world to me ❤️
+            </p>
+
+        </div>
+
+
+        <div class="memory-grid">
+
+
+            <!-- ==========================================
+                 BUTTON 1
+            =========================================== -->
+
+            <div
+                class="memory-card"
+                onclick="openSinglePhoto(
+                    'images/pic1.jpg',
+                    'Our first memory together ❤️'
+                )"
+            >
+
+                <div class="card-icon">
+                    📸
+                </div>
+
+                <div class="card-title">
+                    first memmory<br>
+                    together
+                </div>
+
+                <div class="card-number">
+                    MEMORY 01
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 BUTTON 2
+            =========================================== -->
+
+            <div
+                class="memory-card"
+                onclick="openSinglePhoto(
+                    'images/pic2.jpg',
+                    'Our favorite thing to do ❤️'
+                )"
+            >
+
+                <div class="card-icon">
+                    ♡
+                </div>
+
+                <div class="card-title">
+                    our favorite<br>
+                    thing to do
+                </div>
+
+                <div class="card-number">
+                    MEMORY 02
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 BUTTON 3
+            =========================================== -->
+
+            <div
+                class="memory-card"
+                onclick="openGallery()"
+            >
+
+                <div class="card-icon">
+                    🎁
+                </div>
+
+                <div class="card-title">
+                    my most precious<br>
+                    gift given by life
+                </div>
+
+                <div class="card-number">
+                    MEMORY 03
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PHOTO MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="photoModal"
+    onclick="closeModalOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-button"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+/*
+    YOUR PASSWORD IS:
+
+    03-09-2024
+
+    You can change it here later if you want.
+*/
+
+const correctPassword = "03-09-2024";
+
+
+/*
+    How long the celebration screen stays
+    before automatically opening the memories.
+
+    5000 = 5 seconds
+*/
+
+const celebrationTime = 5000;
+
+
+/* =========================================================
+   SCREEN SWITCHING
+========================================================= */
+
+function showScreen(screenId) {
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+    document
+        .getElementById(screenId)
+        .classList.add("active");
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+const passwordInput =
+    document.getElementById("passwordInput");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+const loginCard =
+    document.getElementById("loginCard");
+
+
+function checkPassword() {
+
+    let entered =
+        passwordInput.value.trim();
+
+    /*
+        Allow the user to type spaces instead of dashes.
+
+        Example:
+
+        03 09 2024
+        becomes
+        03-09-2024
+    */
+
+    entered =
+        entered.replace(/\//g, "-")
+               .replace(/\./g, "-")
+               .replace(/\s+/g, "-");
+
+
+    if (entered === correctPassword) {
+
+        errorMessage.classList.remove("show");
+
+        /*
+            Hide login and show celebration
+        */
+
+        showScreen("celebrationScreen");
+
+        /*
+            Launch a huge amount of confetti
+        */
+
+        launchConfetti();
+
+        /*
+            More confetti a moment later
+        */
+
+        setTimeout(() => {
+
+            launchConfetti();
+
+        }, 1200);
+
+
+        /*
+            Automatically continue to memories
+        */
+
+        setTimeout(() => {
+
+            showScreen("memoryScreen");
+
+        }, celebrationTime);
+
+    }
+
+    else {
+
+        /*
+            Wrong password effect
+        */
+
+        errorMessage.classList.add("show");
+
+        loginCard.classList.remove("shake");
+
+        /*
+            Force browser to restart animation
+        */
+
+        void loginCard.offsetWidth;
+
+        loginCard.classList.add("shake");
+
+        passwordInput.value = "";
+
+    }
+
+}
+
+
+/*
+    Allow ENTER key instead of clicking button
+*/
+
+passwordInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function launchConfetti() {
+
+    const container =
+        document.getElementById(
+            "confetti-container"
+        );
+
+
+    const pieces = 180;
+
+
+    for (
+        let i = 0;
+        i < pieces;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+
+        /*
+            Random horizontal position
+        */
+
+        piece.style.left =
+            Math.random() * 100 + "%";
+
+
+        /*
+            Random size
+        */
+
+        const width =
+            Math.random() * 8 + 5;
+
+        const height =
+            Math.random() * 15 + 8;
+
+        piece.style.width =
+            width + "px";
+
+        piece.style.height =
+            height + "px";
+
+
+        /*
+            Random colors
+        */
+
+        const colors = [
+            "#ff4d91",
+            "#ff82b5",
+            "#ffffff",
+            "#ffd1e3",
+            "#ffcf70",
+            "#d86cff",
+            "#7fdfff"
+        ];
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+
+        /*
+            Random fall speed
+        */
+
+        piece.style.animationDuration =
+            (Math.random() * 3 + 3) + "s";
+
+
+        /*
+            Random delay
+        */
+
+        piece.style.animationDelay =
+            (Math.random() * 1.5) + "s";
+
+
+        /*
+            Random sideways movement
+        */
+
+        piece.style.setProperty(
+            "--drift",
+            (Math.random() * 500 - 250) + "px"
+        );
+
+
+        /*
+            Random starting rotation
+        */
+
+        piece.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+
+        container.appendChild(piece);
+
+
+        /*
+            Delete after animation
+        */
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 7000);
+
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHeart() {
+
+    const container =
+        document.getElementById("hearts");
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        Math.random() > 0.5
+        ? "♥"
+        : "♡";
+
+
+    /*
+        Random position
+    */
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+
+    /*
+        Random size
+    */
+
+    heart.style.fontSize =
+        (Math.random() * 25 + 12) + "px";
+
+
+    /*
+        Random animation duration
+    */
+
+    heart.style.animationDuration =
+        (Math.random() * 8 + 8) + "s";
+
+
+    /*
+        Random delay
+    */
+
+    heart.style.animationDelay =
+        Math.random() * 2 + "s";
+
+
+    container.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 18000);
+
+}
+
+
+/*
+    Create hearts continuously
+*/
+
+setInterval(
+    createHeart,
+    500
+);
+
+
+/*
+    Start with some hearts already there
+*/
+
+for (
+    let i = 0;
+    i < 15;
+    i++
+) {
+
+    setTimeout(
+        createHeart,
+        i * 200
+    );
+
+}
+
+
+/* =========================================================
+   SINGLE PHOTO MODAL
+========================================================= */
+
+function openSinglePhoto(
+    imagePath,
+    caption
+) {
+
+    const modal =
+        document.getElementById(
+            "photoModal"
+        );
+
+    const content =
+        document.getElementById(
+            "modalContent"
+        );
+
+
+    content.innerHTML = `
+
+        <img
+            src="${imagePath}"
+            class="single-photo"
+            alt="Our memory"
+        >
+
+        <div class="photo-caption">
+            ${caption}
+        </div>
+
+    `;
+
+
+    modal.classList.add("active");
+
+}
+
+
+/* =========================================================
+   FOUR PHOTO GALLERY
+========================================================= */
+
+function openGallery() {
+
+    const modal =
+        document.getElementById(
+            "photoModal"
+        );
+
+    const content =
+        document.getElementById(
+            "modalContent"
+        );
+
+
+    content.innerHTML = `
+
+        <div class="gallery-title">
+            My precious gift ❤️
+        </div>
+
+        <div class="gallery">
+
+            <img
+                src="images/pic3.jpg"
+                alt="Our precious memory 1"
+            >
+
+            <img
+                src="images/pic4.jpg"
+                alt="Our precious memory 2"
+            >
+
+            <img
+                src="images/pic5.jpg"
+                alt="Our precious memory 3"
+            >
+
+            <img
+                src="images/pic6.jpg"
+                alt="Our precious memory 4"
+            >
+
+        </div>
+
+    `;
+
+
+    modal.classList.add("active");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal() {
+
+    document
+        .getElementById("photoModal")
+        .classList.remove("active");
+
+}
+
+
+function closeModalOutside(event) {
+
+    if (
+        event.target.id ===
+        "photoModal"
+    ) {
+
+        closeModal();
+
+    }
+
+}
+
+
+/*
+    ESC key closes photos
+*/
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLICK RIPPLE EFFECT
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const ripple =
+            document.createElement("div");
+
+        ripple.className = "ripple";
+
+        ripple.style.left =
+            event.clientX + "px";
+
+        ripple.style.top =
+            event.clientY + "px";
+
+
+        document.body.appendChild(
+            ripple
+        );
+
+
+        setTimeout(() => {
+
+            ripple.remove();
+
+        }, 700);
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT IMAGE DRAGGING
+========================================================= */
+
+document.addEventListener(
+    "dragstart",
+    function(event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
